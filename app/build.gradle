@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'com.diffplug.spotless'
+
+android {
+  namespace 'com.mattprecious.plates'
+  compileSdk 33
+
+  defaultConfig {
+    applicationId "com.mattprecious.plates"
+
+    minSdk 33
+    targetSdk 33
+
+    versionCode 1
+    versionName "1.0"
+
+    vectorDrawables {
+      useSupportLibrary true
+    }
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
+  }
+
+  kotlinOptions {
+    jvmTarget = '11'
+  }
+
+  buildFeatures {
+    compose true
+  }
+
+  composeOptions {
+    kotlinCompilerExtensionVersion libs.versions.composeCompiler.get()
+  }
+
+  lintOptions {
+    checkReleaseBuilds false // Full lint runs as part of 'build' task.
+  }
+
+  packagingOptions {
+    exclude '/META-INF/{AL2.0,LGPL2.1}'
+    exclude 'META-INF/*.kotlin_module'
+    exclude 'META-INF/*.version'
+  }
+
+  testOptions {
+    unitTests.returnDefaultValues = true
+  }
+
+  dependenciesInfo {
+    includeInApk false
+    includeInBundle false
+  }
+}
+
+spotless {
+  kotlin {
+    target("src/**/*.kt")
+    ktlint('0.45.2')
+  }
+}
+
+dependencies {
+  implementation libs.accompanist.systemUiController
+  implementation libs.androidx.activity
+  implementation libs.androidx.core
+  implementation libs.androidx.splashscreen
+  implementation libs.composeUi.activity
+  implementation libs.composeUi.ui
+  implementation libs.composeUi.uiTooling.preview
+  implementation libs.composeUi.material
+  implementation libs.coroutines.core
+  implementation libs.timber
+  debugImplementation libs.composeUi.uiTooling
+  debugImplementation libs.composeUi.uiTestManifest
+}
