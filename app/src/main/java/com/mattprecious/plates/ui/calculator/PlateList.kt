@@ -16,10 +16,9 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.contentColorFor
+import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -83,13 +82,13 @@ private fun Plate(
         modifier = Modifier
           .fillMaxHeight()
           .aspectRatio(1f, matchHeightConstraintsFirst = true)
-          .background(color = MaterialTheme.colors.primary, shape = CircleShape),
+          .background(color = MaterialTheme.colorScheme.primary, shape = CircleShape),
         contentAlignment = Alignment.Center,
       ) {
         Text(
           text = "$count",
-          style = MaterialTheme.typography.h5,
-          color = MaterialTheme.colors.contentColorFor(MaterialTheme.colors.primary),
+          style = MaterialTheme.typography.headlineMedium,
+          color = MaterialTheme.colorScheme.onPrimary,
         )
       }
       Text(
@@ -97,7 +96,7 @@ private fun Plate(
           .align(Alignment.CenterVertically)
           .padding(horizontal = 16.dp),
         text = "$weight",
-        style = MaterialTheme.typography.h5,
+        style = MaterialTheme.typography.headlineMedium,
       )
     }
   }
@@ -111,15 +110,17 @@ private fun Outstanding(
   Card(
     modifier = modifier.height(64.dp),
     shape = RoundedCornerShape(percent = 50),
-    border = BorderStroke(1.dp, MaterialTheme.colors.error),
+    border = BorderStroke(1.dp, MaterialTheme.colorScheme.error),
   ) {
     Box(
-      modifier = Modifier.padding(horizontal = 16.dp),
+      modifier = Modifier
+        .fillMaxHeight()
+        .padding(horizontal = 16.dp),
       contentAlignment = Alignment.CenterStart,
     ) {
       Text(
         text = stringResource(id = R.string.plate_list_outstanding, formatArgs = arrayOf(weight)),
-        style = MaterialTheme.typography.h5,
+        style = MaterialTheme.typography.headlineMedium,
       )
     }
   }

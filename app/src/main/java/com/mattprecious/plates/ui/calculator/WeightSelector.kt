@@ -8,10 +8,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,6 +34,7 @@ import com.mattprecious.plates.ui.calculator.Direction.Decrease
 import com.mattprecious.plates.ui.calculator.Direction.Increase
 import com.mattprecious.plates.weight.lbs
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun WeightSelector(
   modifier: Modifier = Modifier,
@@ -63,13 +65,13 @@ internal fun WeightSelector(
           },
         value = state.textFieldValue,
         onValueChange = { state.setWeight(it) },
-        textStyle = MaterialTheme.typography.h2.copy(
+        textStyle = MaterialTheme.typography.displayLarge.copy(
           textAlign = TextAlign.Center,
           fontWeight = FontWeight.Medium,
         ),
         colors = TextFieldDefaults.textFieldColors(
           unfocusedIndicatorColor = Color.Transparent,
-          backgroundColor = Color.Transparent
+          containerColor = Color.Transparent,
         ),
         isError = state.platesPerSide().outstanding > 0.lbs,
         singleLine = true,
@@ -117,7 +119,7 @@ private fun WeightChangeButton(
         Increase -> stringResource(id = string.calculator_increase)
         Decrease -> stringResource(id = string.calculator_decrease)
       },
-      colorFilter = ColorFilter.tint(MaterialTheme.colors.primary),
+      colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary),
     )
   }
 }

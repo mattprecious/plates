@@ -79,7 +79,7 @@ dependencies {
   implementation libs.composeUi.activity
   implementation libs.composeUi.ui
   implementation libs.composeUi.uiTooling.preview
-  implementation libs.composeUi.material
+  implementation libs.composeUi.material3
   implementation libs.coroutines.core
   implementation libs.timber
   debugImplementation libs.composeUi.uiTooling

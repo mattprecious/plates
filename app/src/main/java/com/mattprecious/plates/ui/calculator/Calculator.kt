@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
@@ -27,7 +27,7 @@ fun Calculator() {
     Surface(
       modifier = Modifier
         .fillMaxSize()
-        .background(MaterialTheme.colors.background)
+        .background(MaterialTheme.colorScheme.background)
         .pointerInput(Unit) {
           detectTapGestures {
             focusManager.clearFocus()

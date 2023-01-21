@@ -1,14 +1,11 @@
 package com.mattprecious.plates.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.dynamicDarkColorScheme
+import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
-
-private val DarkColorPalette = darkColors()
-
-private val LightColorPalette = lightColors()
+import androidx.compose.ui.platform.LocalContext
 
 @Composable
 fun PlatesTheme(
@@ -16,13 +13,13 @@ fun PlatesTheme(
   content: @Composable () -> Unit
 ) {
   val colors = if (darkTheme) {
-    DarkColorPalette
+    dynamicDarkColorScheme(LocalContext.current)
   } else {
-    LightColorPalette
+    dynamicLightColorScheme(LocalContext.current)
   }
 
   MaterialTheme(
-    colors = colors,
+    colorScheme = colors,
     content = content
   )
 }
