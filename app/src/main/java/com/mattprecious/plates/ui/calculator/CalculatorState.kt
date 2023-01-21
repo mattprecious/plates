@@ -49,11 +49,11 @@ class CalculatorState internal constructor() {
       val plateWeight = weight?.minus(barWeight)?.coerceAtLeast(0.lbs) ?: 0.lbs
 
       var remainingWeight = plateWeight / 2
-      val plates = buildList {
+      val plates = buildMap {
         // Greedy algorithm. Will not be optimal or correct for all configurations of plates.
         availableWeightsPerSide.forEach {
           if (remainingWeight >= it) {
-            add(it)
+            put(it, getOrDefault(it, 0) as Int + 1)
             remainingWeight -= it
           }
         }
@@ -67,7 +67,7 @@ class CalculatorState internal constructor() {
   }
 
   data class PlatesPerSide(
-    val plates: List<Pound>,
+    val plates: Map<Pound, Int>,
     val outstanding: Pound,
   )
 }
