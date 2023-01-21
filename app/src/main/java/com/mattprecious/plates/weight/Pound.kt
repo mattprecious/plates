@@ -13,7 +13,7 @@ import kotlin.math.roundToInt
 @JvmInline
 value class Pound private constructor(
   /** Weight in tenths of a pound. */
-  private val value: Int,
+  val value: Int,
 ) : Comparable<Pound> {
   val editableString: String
     get() = editableFormat.locale(Locale.getDefault()).format(value / 10f).toString()
