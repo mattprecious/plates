@@ -1,3 +1,8 @@
 <resources>
   <string name="app_name">Plates</string>
+
+  <string name="calculator_decrease">Decrease</string>
+  <string name="calculator_increase">Increase</string>
+
+  <string name="plate_list_outstanding">Outstanding: %s</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.mattprecious.plates.ui.calculator.Calculator
 
 @Composable
 fun PlatesApp() {
@@ -17,4 +18,6 @@ fun PlatesApp() {
       darkIcons = useDarkIcons,
     )
   }
+
+  Calculator()
 }
