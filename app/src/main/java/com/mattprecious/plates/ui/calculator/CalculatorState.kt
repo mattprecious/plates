@@ -61,7 +61,7 @@ class CalculatorState internal constructor() {
 
       PlatesPerSide(
         plates = plates,
-        outstanding = remainingWeight,
+        outstanding = remainingWeight * 2,
       )
     }
   }
