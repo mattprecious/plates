@@ -81,6 +81,7 @@ dependencies {
   implementation libs.composeUi.uiTooling.preview
   implementation libs.composeUi.material3
   implementation libs.coroutines.core
+  implementation libs.material
   implementation libs.timber
   debugImplementation libs.composeUi.uiTooling
   debugImplementation libs.composeUi.uiTestManifest

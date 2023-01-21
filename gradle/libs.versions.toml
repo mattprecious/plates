@@ -28,6 +28,8 @@ composeUi-uiTooling-preview = { module = "androidx.compose.ui:ui-tooling-preview
 composeUi-material3 = { module = "androidx.compose.material3:material3", version = "1.0.1" }
 composeUi-activity = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 
+material = { module = "com.google.android.material:material", version = "1.7.0" }
+
 accompanist-systemUiController = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
