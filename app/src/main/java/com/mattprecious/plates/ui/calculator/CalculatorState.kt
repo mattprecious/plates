@@ -5,6 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
 import com.mattprecious.plates.weight.Pound
 import com.mattprecious.plates.weight.lbs
@@ -42,6 +43,10 @@ class CalculatorState internal constructor() {
         composition = value.composition,
       )
     }
+  }
+
+  fun selectAll() {
+    _textFieldValue = _textFieldValue.copy(selection = TextRange(0, _textFieldValue.text.length))
   }
 
   fun increase() {
