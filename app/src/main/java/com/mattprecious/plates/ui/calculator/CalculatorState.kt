@@ -5,6 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.text.input.TextFieldValue
 import com.mattprecious.plates.weight.Pound
 import com.mattprecious.plates.weight.lbs
 
@@ -20,13 +21,27 @@ class CalculatorState internal constructor() {
 
   private val stepSize = availableWeightsPerSide.last() * 2
 
+  /** Do not mutate directly. Mutate through [updateWeight]. */
   private var weight by mutableStateOf<Pound?>(barWeight)
 
-  val textFieldValue: String
-    get() = weight?.editableString ?: ""
+  private var _textFieldValue by mutableStateOf(TextFieldValue())
+  val textFieldValue: TextFieldValue
+    get() = _textFieldValue
 
-  fun setWeight(weightString: String) {
-    weight = weightString.toIntOrNull()?.lbs
+  init {
+    updateWeight(barWeight)
+  }
+
+  fun onValueChange(value: TextFieldValue) {
+    _textFieldValue = if (value.text == _textFieldValue.text) {
+      value
+    } else {
+      updateWeight(value.text.toIntOrNull()?.lbs)
+      _textFieldValue.copy(
+        selection = value.selection,
+        composition = value.composition,
+      )
+    }
   }
 
   fun increase() {
@@ -37,7 +52,7 @@ class CalculatorState internal constructor() {
       else -> weight + stepSize - (weight % stepSize)
     }
 
-    this.weight = nextStep.coerceValid()
+    updateWeight(nextStep.coerceValid())
   }
 
   fun decrease() {
@@ -48,11 +63,18 @@ class CalculatorState internal constructor() {
       else -> weight - (weight % stepSize)
     }
 
-    this.weight = nextStep.coerceValid()
+    updateWeight(nextStep.coerceValid())
   }
 
   fun validate() {
-    weight = weight.coerceValid()
+    updateWeight(weight.coerceValid())
+  }
+
+  private fun updateWeight(weight: Pound?) {
+    this.weight = weight
+    _textFieldValue = _textFieldValue.copy(
+      text = weight?.editableString ?: "",
+    )
   }
 
   private fun Pound?.coerceValid() = this?.coerceAtLeast(barWeight) ?: barWeight

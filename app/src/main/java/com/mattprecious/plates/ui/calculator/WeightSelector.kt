@@ -67,7 +67,7 @@ internal fun WeightSelector(
             }
           },
         value = state.textFieldValue,
-        onValueChange = { state.setWeight(it) },
+        onValueChange = { state.onValueChange(it) },
         textStyle = MaterialTheme.typography.displayLarge.copy(
           textAlign = TextAlign.Center,
           fontWeight = FontWeight.Medium,
