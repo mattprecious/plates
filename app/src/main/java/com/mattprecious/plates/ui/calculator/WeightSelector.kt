@@ -45,16 +45,19 @@ internal fun WeightSelector(
     horizontalArrangement = Arrangement.spacedBy(24.dp),
     verticalAlignment = Alignment.CenterVertically,
   ) {
+    val focusManager = LocalFocusManager.current
+
     WeightChangeButton(
       direction = Decrease,
-      onClick = { state.decrease() },
+      onClick = {
+        state.decrease()
+        focusManager.clearFocus()
+      },
     )
 
     Box(
       modifier = Modifier.weight(1f)
     ) {
-      val focusManager = LocalFocusManager.current
-
       TextField(
         modifier = Modifier
           .align(Alignment.Center)
@@ -88,7 +91,10 @@ internal fun WeightSelector(
 
     WeightChangeButton(
       direction = Increase,
-      onClick = { state.increase() },
+      onClick = {
+        state.increase()
+        focusManager.clearFocus()
+      },
     )
   }
 }
