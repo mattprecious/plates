@@ -30,11 +30,25 @@ class CalculatorState internal constructor() {
   }
 
   fun increase() {
-    weight = weight?.plus(stepSize).coerceValid()
+    val weight = weight
+    val nextStep = when {
+      weight == null -> barWeight
+      weight % stepSize == 0.lbs -> weight + stepSize
+      else -> weight + stepSize - (weight % stepSize)
+    }
+
+    this.weight = nextStep.coerceValid()
   }
 
   fun decrease() {
-    weight = weight?.minus(stepSize).coerceValid()
+    val weight = weight
+    val nextStep = when {
+      weight == null -> barWeight
+      weight % stepSize == 0.lbs -> weight - stepSize
+      else -> weight - (weight % stepSize)
+    }
+
+    this.weight = nextStep.coerceValid()
   }
 
   fun validate() {

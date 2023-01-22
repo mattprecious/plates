@@ -34,6 +34,8 @@ value class Pound private constructor(
 
   operator fun div(other: Int) = Pound(value / other)
 
+  operator fun rem(other: Pound) = Pound(value % other.value)
+
   companion object {
     private val displayFormat = NumberFormatter.with()
       .decimal(DecimalSeparatorDisplay.AUTO)
