@@ -78,17 +78,23 @@ private fun Plate(
     shape = RoundedCornerShape(percent = 50),
   ) {
     Row {
+      val (countBackground, countText) = when (count) {
+        1 -> MaterialTheme.colorScheme.primary to MaterialTheme.colorScheme.onPrimary
+        2 -> MaterialTheme.colorScheme.secondary to MaterialTheme.colorScheme.onSecondary
+        else -> MaterialTheme.colorScheme.tertiary to MaterialTheme.colorScheme.onTertiary
+      }
+
       Box(
         modifier = Modifier
           .fillMaxHeight()
           .aspectRatio(1f, matchHeightConstraintsFirst = true)
-          .background(color = MaterialTheme.colorScheme.primary, shape = CircleShape),
+          .background(color = countBackground, shape = CircleShape),
         contentAlignment = Alignment.Center,
       ) {
         Text(
           text = "$count",
           style = MaterialTheme.typography.headlineMedium,
-          color = MaterialTheme.colorScheme.onPrimary,
+          color = countText,
         )
       }
       Text(
@@ -131,7 +137,7 @@ private fun Outstanding(
 fun PlateListPreview() {
   PlateList(
     platesPerSide = PlatesPerSide(
-      plates = mapOf(45.lbs to 1, 25.lbs to 1, 5.lbs to 2, 2.5.lbs to 1),
+      plates = mapOf(45.lbs to 1, 25.lbs to 1, 5.lbs to 2, 2.5.lbs to 1, 1.lbs to 3),
       outstanding = 30.lbs
     )
   )
