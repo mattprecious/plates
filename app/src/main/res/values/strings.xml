@@ -5,4 +5,5 @@
   <string name="calculator_increase">Increase</string>
 
   <string name="plate_list_outstanding">Outstanding: %s</string>
+  <string name="plate_list_per_side">PER SIDE:</string>
 </resources>

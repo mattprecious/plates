@@ -54,6 +54,19 @@ internal fun PlateList(
       }
     }
 
+    if (!platesPerSide.plates.isEmpty()) {
+      item(
+        key = "per-side",
+        span = { GridItemSpan(maxLineSpan) },
+      ) {
+        Text(
+          modifier = Modifier.animateItemPlacement(),
+          text = stringResource(id = R.string.plate_list_per_side),
+          style = MaterialTheme.typography.labelLarge,
+        )
+      }
+    }
+
     items(
       items = platesPerSide.plates.toList(),
       key = { it.first.value },
