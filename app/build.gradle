@@ -71,7 +71,9 @@ android {
 spotless {
   kotlin {
     target("src/**/*.kt")
-    ktlint('0.45.2')
+    ktlint().editorConfigOverride([
+      'ktlint_standard_filename': 'disabled',
+    ])
   }
 }
 

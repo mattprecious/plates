@@ -45,7 +45,7 @@ internal fun PlateList(
     if (platesPerSide.outstanding > 0.lbs) {
       item(
         key = "outstanding",
-        span = { GridItemSpan(maxLineSpan) }
+        span = { GridItemSpan(maxLineSpan) },
       ) {
         Outstanding(
           modifier = Modifier.animateItemPlacement(),
@@ -124,7 +124,7 @@ private fun Plate(
 @Composable
 private fun Outstanding(
   modifier: Modifier = Modifier,
-  weight: Pound
+  weight: Pound,
 ) {
   Card(
     modifier = modifier.height(64.dp),
@@ -151,7 +151,7 @@ fun PlateListPreview() {
   PlateList(
     platesPerSide = PlatesPerSide(
       plates = mapOf(45.lbs to 1, 25.lbs to 1, 5.lbs to 2, 2.5.lbs to 1, 1.lbs to 3),
-      outstanding = 30.lbs
-    )
+      outstanding = 30.lbs,
+    ),
   )
 }

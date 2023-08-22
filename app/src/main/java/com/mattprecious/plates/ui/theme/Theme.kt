@@ -10,7 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 @Composable
 fun PlatesTheme(
   darkTheme: Boolean = isSystemInDarkTheme(),
-  content: @Composable () -> Unit
+  content: @Composable () -> Unit,
 ) {
   val colors = if (darkTheme) {
     dynamicDarkColorScheme(LocalContext.current)
@@ -20,6 +20,6 @@ fun PlatesTheme(
 
   MaterialTheme(
     colorScheme = colors,
-    content = content
+    content = content,
   )
 }

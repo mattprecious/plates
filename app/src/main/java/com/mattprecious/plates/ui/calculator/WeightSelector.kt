@@ -62,7 +62,7 @@ internal fun WeightSelector(
     )
 
     Box(
-      modifier = Modifier.weight(1f)
+      modifier = Modifier.weight(1f),
     ) {
       TextField(
         modifier = Modifier
@@ -93,7 +93,7 @@ internal fun WeightSelector(
           imeAction = ImeAction.Done,
         ),
         keyboardActions = KeyboardActions(
-          onDone = { focusManager.clearFocus() }
+          onDone = { focusManager.clearFocus() },
         ),
       )
     }
@@ -110,7 +110,7 @@ internal fun WeightSelector(
 
 private enum class Direction {
   Increase,
-  Decrease
+  Decrease,
 }
 
 @Composable
@@ -128,7 +128,7 @@ private fun WeightChangeButton(
         when (direction) {
           Increase -> R.drawable.weight_increase
           Decrease -> R.drawable.weight_decrease
-        }
+        },
       ),
       contentDescription = when (direction) {
         Increase -> stringResource(id = string.calculator_increase)
