@@ -25,7 +25,7 @@ composeUi-ui = { module = "androidx.compose.ui:ui", version.ref = "composeUi" }
 composeUi-uiTestManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "composeUi" }
 composeUi-uiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "composeUi" }
 composeUi-uiTooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "composeUi" }
-composeUi-material3 = { module = "androidx.compose.material3:material3", version = "1.0.1" }
+composeUi-material3 = { module = "androidx.compose.material3:material3", version = "1.1.1" }
 composeUi-activity = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 
 material = { module = "com.google.android.material:material", version = "1.7.0" }
