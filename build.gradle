@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
 buildscript {
   dependencies {
     classpath libs.agp
@@ -9,4 +12,16 @@ plugins {
   alias(libs.plugins.android.application) apply false
   alias(libs.plugins.android.library) apply false
   alias(libs.plugins.kotlin.android) apply false
+}
+
+subprojects {
+  tasks.withType(KotlinJvmCompile).configureEach {
+    compilerOptions {
+      jvmTarget.set(JvmTarget.JVM_11)
+      freeCompilerArgs.addAll([
+        '-progressive', // https://kotlinlang.org/docs/whatsnew13.html#progressive-mode
+        '-Xjvm-default=all',
+      ])
+    }
+  }
 }
