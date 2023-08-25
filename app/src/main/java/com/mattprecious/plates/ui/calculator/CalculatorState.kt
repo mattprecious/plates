@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.Saver
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
@@ -12,10 +14,12 @@ import com.mattprecious.plates.weight.lbs
 
 @Composable
 fun rememberCalculatorState(): CalculatorState {
-  return remember { CalculatorState() }
+  return rememberSaveable(saver = CalculatorStateSaver) { CalculatorState() }
 }
 
-class CalculatorState internal constructor() {
+class CalculatorState internal constructor(
+  savedState: Int? = null,
+) {
   private val barWeight = 45.lbs
   private val availableWeightsPerSide =
     arrayOf(45.lbs, 35.lbs, 25.lbs, 10.lbs, 5.lbs, 5.lbs, 2.5.lbs)
@@ -23,14 +27,14 @@ class CalculatorState internal constructor() {
   private val stepSize = availableWeightsPerSide.last() * 2
 
   /** Do not mutate directly. Mutate through [updateWeight]. */
-  private var weight by mutableStateOf<Pound?>(barWeight)
+  private var weight by mutableStateOf<Pound?>(savedState?.let(Pound::fromValue) ?: barWeight)
 
   private var _textFieldValue by mutableStateOf(TextFieldValue())
   val textFieldValue: TextFieldValue
     get() = _textFieldValue
 
   init {
-    updateWeight(barWeight)
+    updateWeight(weight)
   }
 
   fun onValueChange(value: TextFieldValue) {
@@ -111,4 +115,13 @@ class CalculatorState internal constructor() {
     val plates: Map<Pound, Int>,
     val outstanding: Pound,
   )
+
+  fun saveState(): Int? {
+    return weight?.value
+  }
 }
+
+private val CalculatorStateSaver = Saver<CalculatorState, Int>(
+  save = { it.saveState() },
+  restore = { CalculatorState(it) },
+)

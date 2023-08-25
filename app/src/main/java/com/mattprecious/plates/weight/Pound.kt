@@ -47,6 +47,12 @@ value class Pound private constructor(
 
     /** Supports only one decimal place. Could be wrong due to double precision. */
     fun fromDouble(weight: Double) = Pound((weight * 10).roundToInt())
+
+    /**
+     * @param value A value previously returned by calling [Pound.value]. Not stable across app
+     * updates.
+     */
+    fun fromValue(value: Int) = Pound(value)
   }
 }
 
