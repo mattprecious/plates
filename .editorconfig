@@ -5,3 +5,6 @@ insert_final_newline=true
 end_of_line = lf
 charset = utf-8
 indent_size = 2
+# Disable just for composables once ktlint is updated.
+# https://github.com/pinterest/ktlint/issues/2259#issuecomment-1732333419
+ktlint_standard_function-naming=disabled
