@@ -2,7 +2,6 @@
 accompanist = "0.34.0"
 android-gradle = "8.4.1"
 androidx-activity = "1.9.0"
-composeCompiler = "1.5.14"
 composeUi = "1.6.7"
 coroutines = "1.8.1"
 kotlin = "2.0.0"
@@ -10,6 +9,7 @@ kotlin = "2.0.0"
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle" }
 android-library = { id = "com.android.library", version.ref = "android-gradle" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 [libraries]
@@ -21,8 +21,6 @@ androidx-core = { module = "androidx.core:core-ktx", version = "1.13.1" }
 androidx-splashscreen = { module = "androidx.core:core-splashscreen", version = "1.0.1" }
 androidx-activity = { module = "androidx.activity:activity", version.ref = "androidx-activity" }
 
-# This isn't strictly used, but allows Renovate to see us using the Compose Compiler artifact
-compose-compiler = { module = "androidx.compose.compiler:compiler", version.ref = "composeCompiler" }
 composeUi-ui = { module = "androidx.compose.ui:ui", version.ref = "composeUi" }
 composeUi-uiTestManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "composeUi" }
 composeUi-uiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "composeUi" }
