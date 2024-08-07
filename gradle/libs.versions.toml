@@ -4,7 +4,7 @@ android-gradle = "8.5.1"
 androidx-activity = "1.9.1"
 composeUi = "1.6.8"
 coroutines = "1.8.1"
-kotlin = "2.0.0"
+kotlin = "2.0.10"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle" }
