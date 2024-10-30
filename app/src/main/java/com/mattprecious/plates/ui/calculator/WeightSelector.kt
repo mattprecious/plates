@@ -81,9 +81,12 @@ internal fun WeightSelector(
           textAlign = TextAlign.Center,
           fontWeight = FontWeight.Medium,
         ),
-        colors = TextFieldDefaults.textFieldColors(
+        colors = TextFieldDefaults.colors(
           unfocusedIndicatorColor = Color.Transparent,
-          containerColor = Color.Transparent,
+          focusedContainerColor = Color.Transparent,
+          unfocusedContainerColor = Color.Transparent,
+          disabledContainerColor = Color.Transparent,
+          errorContainerColor = Color.Transparent,
         ),
         isError = state.platesPerSide().outstanding > 0.lbs,
         singleLine = true,
