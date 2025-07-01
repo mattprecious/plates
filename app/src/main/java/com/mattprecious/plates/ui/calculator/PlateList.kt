@@ -48,7 +48,7 @@ internal fun PlateList(
         span = { GridItemSpan(maxLineSpan) },
       ) {
         Outstanding(
-          modifier = Modifier.animateItemPlacement(),
+          modifier = Modifier.animateItem(),
           weight = platesPerSide.outstanding,
         )
       }
@@ -60,7 +60,7 @@ internal fun PlateList(
         span = { GridItemSpan(maxLineSpan) },
       ) {
         Text(
-          modifier = Modifier.animateItemPlacement(),
+          modifier = Modifier.animateItem(),
           text = stringResource(id = R.string.plate_list_per_side),
           style = MaterialTheme.typography.labelLarge,
         )
@@ -72,7 +72,7 @@ internal fun PlateList(
       key = { it.first.value },
     ) {
       Plate(
-        modifier = Modifier.animateItemPlacement(),
+        modifier = Modifier.animateItem(),
         weight = it.first,
         count = it.second,
       )
