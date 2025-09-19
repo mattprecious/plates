@@ -28,7 +28,7 @@ composeUi-uiTooling-preview = { module = "androidx.compose.ui:ui-tooling-preview
 composeUi-material3 = { module = "androidx.compose.material3:material3", version = "1.3.2" }
 composeUi-activity = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 
-material = { module = "com.google.android.material:material", version = "1.12.0" }
+material = { module = "com.google.android.material:material", version = "1.13.0" }
 
 accompanist-systemUiController = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
