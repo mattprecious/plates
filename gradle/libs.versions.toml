@@ -2,7 +2,7 @@
 accompanist = "0.36.0"
 android-gradle = "8.13.0"
 androidx-activity = "1.10.1"
-composeUi = "1.9.1"
+composeUi = "1.9.2"
 coroutines = "1.10.2"
 kotlin = "2.2.20"
 
