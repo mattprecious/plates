@@ -1,6 +1,6 @@
 [versions]
 accompanist = "0.36.0"
-android-gradle = "8.13.2"
+android-gradle = "9.1.0"
 androidx-activity = "1.13.0"
 composeUi = "1.10.4"
 coroutines = "1.10.2"
