@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'org.jetbrains.kotlin.android'
 apply plugin: 'org.jetbrains.kotlin.plugin.compose'
 apply plugin: 'com.diffplug.spotless'
 
@@ -28,7 +27,7 @@ android {
 
     release {
       minifyEnabled true
-      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
     }
   }
 

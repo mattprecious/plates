@@ -1,6 +1,6 @@
 [versions]
 accompanist = "0.36.0"
-android-gradle = "8.13.2"
+android-gradle = "9.1.0"
 androidx-activity = "1.13.0"
 composeUi = "1.10.5"
 coroutines = "1.10.2"
@@ -10,7 +10,6 @@ kotlin = "2.3.10"
 android-application = { id = "com.android.application", version.ref = "android-gradle" }
 android-library = { id = "com.android.library", version.ref = "android-gradle" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 [libraries]
 # Not plugin plugins.
