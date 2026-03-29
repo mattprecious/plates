@@ -24,3 +24,10 @@ jobs:
           java-version: 17
 
       - run: ./gradlew build
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: plates-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
